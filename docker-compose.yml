@@ -8,7 +8,6 @@ services:
       - 3000:3000
     volumes:
       - .:/app:rw
-      - backend-tmp:/app/tmp
   frontend:
     container_name: rack_frontend
     build:
@@ -18,10 +17,4 @@ services:
       - 8080:8080
     volumes:
       - ./client:/app:rw
-      - frontend-tmp:/app/tmp
 
-volumes:
-  backend-tmp:
-    driver: local
-  frontend-tmp:
-    driver: local
