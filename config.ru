@@ -1,5 +1,5 @@
-# config.ru
-load 'rack_request.rb'
+# frozen_string_literal: true
 
-run RackRequest.new
+require_relative 'config/application'
 
+run Application

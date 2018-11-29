@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  ruby:
+    container_name: rack_backend
+    build: .
+    command: bundle exec rackup
+    ports:
+      - 9292:9292
+    volumes:
+      - .:/app:rw
+      - data-tmp:/app/tmp
+volumes:
+  data-tmp:
+    driver: local
