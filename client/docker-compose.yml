@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  frontend:
+    container_name: rack_frontend
+    build: .
+    command: npm run serve
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app:rw
+      - data-tmp:/app/tmp
+    tty: true
+    stdin_open: true
+volumes:
+  data-tmp:
+    driver: local

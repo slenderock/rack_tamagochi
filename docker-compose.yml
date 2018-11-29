@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  ruby:
+  backend:
     container_name: rack_backend
     build: .
     command: bundle exec rackup -p 3000
@@ -8,7 +8,20 @@ services:
       - 3000:3000
     volumes:
       - .:/app:rw
-      - data-tmp:/app/tmp
+      - backend-tmp:/app/tmp
+  frontend:
+    container_name: rack_frontend
+    build:
+      context: client
+    command: npm run serve
+    ports:
+      - 8080:8080
+    volumes:
+      - ./client:/app:rw
+      - frontend-tmp:/app/tmp
+
 volumes:
-  data-tmp:
+  backend-tmp:
+    driver: local
+  frontend-tmp:
     driver: local
