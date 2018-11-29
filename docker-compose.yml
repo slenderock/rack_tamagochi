@@ -3,9 +3,9 @@ services:
   ruby:
     container_name: rack_backend
     build: .
-    command: bundle exec rackup
+    command: bundle exec rackup -p 3000
     ports:
-      - 9292:9292
+      - 3000:3000
     volumes:
       - .:/app:rw
       - data-tmp:/app/tmp
